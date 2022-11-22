@@ -4,8 +4,10 @@ import datetime
 import time
 import yaml
 with open('config.yaml', encoding='UTF-8') as f:
-    _cfg = yaml.load(f, Loader=yaml.FullLoader)                                    
+    _cfg = yaml.load(f, Loader=yaml.FullLoader)                                     # FullLoader는 전체 YAML 언어를 로드하고 임의 코드 실행을 방지하는 인수.
+print(_cfg)
 APP_KEY = _cfg['APP_KEY']
+print(APP_KEY)
 APP_SECRET = _cfg['APP_SECRET']
 ACCESS_TOKEN = ""
 CANO = _cfg['CANO']
@@ -14,8 +16,8 @@ DISCORD_WEBHOOK_URL = _cfg['DISCORD_WEBHOOK_URL']
 URL_BASE = _cfg['URL_BASE']
 def send_message(msg):
     """디스코드 메세지 전송"""
-    now = datetime.datetime.now()                                                     
-    message = {"content": f"[{now.strftime('%Y-%m-%d %H:%M:%S')}] {str(msg)}"}        
+    now = datetime.datetime.now()                                                     # datetime모듈의 datetime class를 import해 now메서드로 현재 날짜와 시간을 가져와 now변수에 할당.
+    message = {"content": f"[{now.strftime('%Y-%m-%d %H:%M:%S')}] {str(msg)}"}        # strftime 메서드를 사용하면 년,월,일, 시간등을 0을 포함한 10진수로 표현할수 있다. 포매팅기호 f를 사용해야지만 가능.
     requests.post(DISCORD_WEBHOOK_URL, data=message)
     print(message)
 def get_access_token():
@@ -26,6 +28,8 @@ def get_access_token():
             "appsecret": APP_SECRET}
     PATH = "oauth2/tokenP"
     URL = f"{URL_BASE}/{PATH}"
+    # data = json.dumps(body)
+    # print(body,'+', data)                                                           # dict는 ''로 감싸져있고, json은 ""로 감싸져 있다.
     res = requests.post(URL, headers=headers, data=json.dumps(body))
     ACCESS_TOKEN = res.json()["access_token"]
     return ACCESS_TOKEN
