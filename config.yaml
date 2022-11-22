@@ -1,8 +1,8 @@
 #홈페이지에서 API서비스 신청시 받은 Appkey, Appsecret 값 설정
-APP_KEY: “”
-APP_SECRET: “”
+APP_KEY: “PSMg942yq2oBx7H42U6nritaNsqH663YR4MN”
+APP_SECRET: “ReEdow5lFjAJO/2EWFpBctXBwE0idR/Pwc+3L353AJGVlUQV2gnLQjRX0UNzu+UhItlGMPsp7T5YpN0g2I6C5TwO88qKwwz3ndH6mfZW+y8Fo25mLSWMyNV1MASH0ypbZJcwKcVCplqigWmvGAcEoF54t+dOoX9ghqp8hOHFSp6xLpUY0sw=”
 #계좌번호 앞 8자리
-CANO: “”
+CANO: “50076256”
 #계좌번호 뒤 2자리
 ACNT_PRDT_CD: “01"
 #실전투자
